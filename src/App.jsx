@@ -7,9 +7,9 @@ import "./index.css";
 
 //pages
 import HomePage from "./assets/pages/HomePage";
-import PostsPage from "./assets/pages/PostsPage";
 import AboutPage from "./assets/pages/AboutPage";
 import Navbar from "./assets/pages/Navbar";
+import PostListPage from "./assets/pages/posts/PostListPage";
 
 export default function App() {
   return (
@@ -19,8 +19,14 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/posts" element={<PostsPage />} />
         <Route path="/about" element={<AboutPage />} />
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
+        <Route path="/posts">
+          <Route path="" element={<PostListPage />} />
+          <Route path=":id" element={<PostListPage />} />
+          <Route path="create" element={<PostListPage />} />
+          <Route path="update/:id" element={<PostListPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
