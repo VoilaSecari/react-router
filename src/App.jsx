@@ -10,6 +10,7 @@ import HomePage from "./assets/pages/HomePage";
 import AboutPage from "./assets/pages/AboutPage";
 import Navbar from "./assets/pages/Navbar";
 import PostListPage from "./assets/pages/posts/PostListPage";
+import PostDetailPage from "./assets/pages/posts/PostDetailPage";
 
 export default function App() {
   return (
@@ -23,9 +24,7 @@ export default function App() {
         {/* <Route path="*" element={<NotFoundPage />} /> */}
         <Route path="/posts">
           <Route path="" element={<PostListPage />} />
-          <Route path=":id" element={<PostListPage />} />
-          <Route path="create" element={<PostListPage />} />
-          <Route path="update/:id" element={<PostListPage />} />
+          <Route path=":id" element={<PostDetailPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

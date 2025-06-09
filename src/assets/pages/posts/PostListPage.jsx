@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function PostListPage() {
@@ -6,7 +7,7 @@ export default function PostListPage() {
 
   useEffect(() => {
     axios.get("http://localhost:3000/posts").then((res) => {
-      console.log(res.data.posts);
+      //   console.log(res.data.posts);
       setPosts(res.data.posts);
     });
   }, []);
@@ -28,7 +29,9 @@ export default function PostListPage() {
             <tr key={post.id}>
               <td>{post.id}</td>
               <td>{post.title}</td>
-              <td>Visualizza</td>
+              <td>
+                <Link to={`/posts/${post.id}`}>Visualizza</Link>
+              </td>
             </tr>
           ))}
         </tbody>
